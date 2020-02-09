@@ -9,3 +9,5 @@ colesberlin
 src/__pycache__/apiFour.cpython-38.pyc
 src/__pycache__/scrap.cpython-38.pyc
 src/scrap.py
+../.DS_Store
+.DS_Store
