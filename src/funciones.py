@@ -51,6 +51,9 @@ def withGeoQuery(location,maxDistance=2000,minDistance=0,field="location"):
 
 
 def VisualizaCarto(df):
+    """
+    Esta función convierte un df en un geodataframe
+    """
     geometry = [Point(xy) for xy in zip(df.longitude, df.latitude)]
     crs = {'init': 'epsg:4326'}
     gdf = GeoDataFrame(df, crs=crs, geometry=geometry)
@@ -79,3 +82,11 @@ def GoodList(lista):
                 goodlist.append(c)
     
     return goodlist
+
+
+def GeoDataframe(lista):
+    df_lista = pd.DataFrame(lista)
+    dfotro = df_lista[["location"]].apply(lambda r: r.location, result_type="expand", axis=1)
+    dfcoord = dfotro[["lat","lng"]].rename(columns={"lat": "latitude", "lng":"longitude"})
+    lista_map = VisualizaCarto(dfcoord)
+    return lista_map
