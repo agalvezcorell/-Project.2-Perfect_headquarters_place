@@ -2,6 +2,7 @@ import math
 import requests
 from geopandas import GeoDataFrame
 from shapely.geometry import Point
+import pandas as pd
 
 def asGeoJSON(lat,lng):
     """
@@ -49,10 +50,32 @@ def withGeoQuery(location,maxDistance=2000,minDistance=0,field="location"):
     }
 
 
-
-
 def VisualizaCarto(df):
     geometry = [Point(xy) for xy in zip(df.longitude, df.latitude)]
     crs = {'init': 'epsg:4326'}
     gdf = GeoDataFrame(df, crs=crs, geometry=geometry)
     return gdf
+
+
+def aDataF(lugar):
+    """
+    Esta función convierte un elemento que tenga latitud y longitud
+    en un geodataframe para poder visualizarlo en Cartoframes.
+    """
+    data = [{ "latitude": lugar[1],
+    "longitude":lugar[0]
+    }]
+    df = pd.DataFrame(data)
+    geometry = [Point(xy) for xy in zip(df.longitude, df.latitude)]
+    crs = {'init': 'epsg:4326'}
+    gdf = GeoDataFrame(df, crs=crs, geometry=geometry)
+    return gdf
+
+def GoodList(lista):
+    goodlist = []
+    for a in lista:
+        for b in a.values():
+            for c in b.values():
+                goodlist.append(c)
+    
+    return goodlist
