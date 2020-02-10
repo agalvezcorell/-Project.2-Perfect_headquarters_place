@@ -3,6 +3,9 @@ import requests
 from geopandas import GeoDataFrame
 from shapely.geometry import Point
 import pandas as pd
+from pymongo import MongoClient
+client = MongoClient("mongodb://localhost/companies") 
+db = client.get_database()
 
 def asGeoJSON(lat,lng):
     """
@@ -106,3 +109,16 @@ def GeoQueryRanking(location,maxDistance=3000,minDistance=0,field="location"):
          }
        }
     }
+
+def findNear(list_geo, radio_meters):
+        geopoint = list_geo
+        return list(db.veganBIENINDEX.find({
+        "location": {
+         "$near": {
+             "$geometry": geopoint,
+             "$maxDistance": radio_meters
+         }
+    }
+    }
+    )
+    )
