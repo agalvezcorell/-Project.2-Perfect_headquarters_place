@@ -11,3 +11,5 @@ src/__pycache__/scrap.cpython-38.pyc
 src/scrap.py
 ../.DS_Store
 .DS_Store
+geckodriver.log
+src/__pycache__/funciones.cpython-38.pyc

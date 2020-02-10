@@ -89,4 +89,20 @@ def GeoDataframe(lista):
     dfotro = df_lista[["location"]].apply(lambda r: r.location, result_type="expand", axis=1)
     dfcoord = dfotro[["lat","lng"]].rename(columns={"lat": "latitude", "lng":"longitude"})
     lista_map = VisualizaCarto(dfcoord)
+    lista_map["name"] = df_lista["name"]
     return lista_map
+
+def GeoQueryRanking(location,maxDistance=3000,minDistance=0,field="location"):
+    """
+    Devuelve un diccionario para poder hacer una query a MongoDB y ver si en
+    el punto que le ponga hay empresas de más de 9 años en 2km
+    """
+    return {
+       field: {
+         "$near": {
+           "$geometry": location if type(location)==dict else geocode(location),
+           "$maxDistance": maxDistance,
+           "$minDistance": minDistance
+         }
+       }
+    }
