@@ -18,3 +18,5 @@ Queremos que todas las personas que trabajan aquí estén contentos con la nueva
 
 ¿Cuál será el lugar que tenga todos esos elementos cerca?
 Descúbrelo en este proyecto
+
+![Foto_del_mapa](https://github.com/agalvezcorell/Project.3-Perfect_headquarters_place/blob/master/output/mapa.png)
