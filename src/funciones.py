@@ -94,25 +94,11 @@ def GeoDataframe(lista):
     lista_map = VisualizaCarto(dfcoord)
     lista_map["name"] = df_lista["name"]
     return lista_map
+"""
+def findNear(list_geo, radio_meters,col):
 
-def GeoQueryRanking(location,maxDistance=3000,minDistance=0,field="location"):
-    """
-    Devuelve un diccionario para poder hacer una query a MongoDB y ver si en
-    el punto que le ponga hay empresas de más de 9 años en 2km
-    """
-    return {
-       field: {
-         "$near": {
-           "$geometry": location if type(location)==dict else geocode(location),
-           "$maxDistance": maxDistance,
-           "$minDistance": minDistance
-         }
-       }
-    }
-
-def findNear(list_geo, radio_meters):
         geopoint = list_geo
-        return list(db.veganBIENINDEX.find({
+        return list(db.starbien.find({
         "location": {
          "$near": {
              "$geometry": geopoint,
@@ -122,3 +108,4 @@ def findNear(list_geo, radio_meters):
     }
     )
     )
+    """
