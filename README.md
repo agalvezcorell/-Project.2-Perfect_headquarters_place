@@ -12,8 +12,9 @@ Queremos que todas las personas que trabajan aquí estén contentos con la nueva
 
 - La CEO es vegana
 - A las 10 personas ejecutivas les gusta mucho el Starbucks
-- Tiene que haber un aeropuerto cerca para los Account Managers que viajan bastante
+- Tiene que haber un aeropuerto cerca para los Account Managers que viajan bastante.
 - Toda la gente tiene entre 25 y 40 años así que les gusta salir de fiesta....
+- El 30% de la empresa tiene hijas/os, así que nos pondremos cerca de diferentes escuelas en un radio de 4km.
 
 
 ¿Cuál será el lugar que tenga todos esos elementos cerca?
